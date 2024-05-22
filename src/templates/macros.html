@@ -1,0 +1,33 @@
+{% macro render_posts(post_list, name, sep=False) %}
+     {% for post in post_list %}
+        <article class="blog-post">
+            <h2 class="blog-post-title mb-1">{{ post.title }}</h2>
+            <p class="blog-post-meta">{{ post.created_at }} by {{ name}}</p>
+
+            <p>{{ post.text }}</p>
+
+        </article>
+        {% endfor %}
+        {% if sep %}<hr>{% endif %}
+{% endmacro %}
+
+{% macro render_tags(tag_list, sep=False) %}
+     {% for tag in tag_list %}
+     <li><a href="#">{{ tag.caption }}</a></li>
+        {% endfor %}
+        {% if sep %}<hr>{% endif %}
+{% endmacro %}
+
+{% macro render_cutted_posts(post_list, name, sep=False) %}
+     {% for post in post_list %}
+        <article class="blog-post">
+            <h2 class="blog-post-title mb-1">{{ post.title }}</h2>
+            <p class="blog-post-meta">{{ post.created_at }} by {{ name}}</p>
+            <p>{{ post.text }}</p>
+
+            <a href="/post" class="stretched-link">continue</a>
+
+        </article>
+        {% endfor %}
+        {% if sep %}<hr>{% endif %}
+{% endmacro %}

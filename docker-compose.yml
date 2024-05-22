@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  app:
+    container_name: app
+    env_file:
+      - .env
+    build:
+      context: src
+    stop_signal: SIGINT
+    volumes:
+      - ./src/:/opt/app
+    ports:
+      - '5000:5000'
+
+  postgres:
+    image: postgres:15.1-alpine
+    container_name: postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${db_password}
+      POSTGRES_USER: ${db_user}
+      POSTGRES_DB: ${db_name}
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql
