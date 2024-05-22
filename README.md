@@ -1,4 +1,4 @@
-####Dockerized Flask app with jinja templates and postgres db.
+#### Dockerized Flask app with jinja templates and postgres db.
 
 ###### What is it
 An example of flask app with jinja templates, wtform  and postgres db. Can be used as a starter for simple web app/ Some useful things are missed, see in [notes](#Notes) sections.
